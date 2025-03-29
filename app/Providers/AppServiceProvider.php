@@ -25,6 +25,10 @@ class AppServiceProvider extends ServiceProvider
     Reserva::where('fecha_fin', '<', Carbon::now())
         ->where('estado', '!=', 'finalizada')
         ->update(['estado' => 'finalizada']);
+
+    if (env('APP_ENV') == 'production') {
+            $this->app['request']->server->set('HTTPS', true);
+        }
 }
 
 }
