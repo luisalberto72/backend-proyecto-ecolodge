@@ -26,9 +26,6 @@ class AppServiceProvider extends ServiceProvider
         ->where('estado', '!=', 'finalizada')
         ->update(['estado' => 'finalizada']);
 
-    if (env('APP_ENV') == 'production') {
-            $this->app['request']->server->set('HTTPS', true);
-        }
 }
 
 }
