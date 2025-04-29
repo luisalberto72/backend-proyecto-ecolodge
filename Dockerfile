@@ -11,7 +11,9 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
-    && docker-php-ext-install pdo pdo_mysql zip
+    libcurl4-openssl-dev \
+    libicu-dev \
+    && docker-php-ext-install pdo pdo_mysql zip bcmath mbstring curl
 
 # Instala Composer globalmente
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
@@ -31,6 +33,9 @@ USER laravel
 # Instala dependencias de Composer
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
+# Asegura permisos adecuados para Laravel
+RUN chmod -R 775 /var/www/storage /var/www/bootstrap/cache
+
 # Vuelve a usar root para configurar Apache
 USER root
 
@@ -46,6 +51,9 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.
 
 # Expone el puerto 80
 EXPOSE 80
+
+# Copia el archivo .env si no existe
+RUN cp .env.example .env
 
 # Comando por defecto
 CMD ["apache2-foreground"]
