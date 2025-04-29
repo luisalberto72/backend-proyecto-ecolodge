@@ -15,6 +15,7 @@
     "document_root": "public",
     "app_folder": "public",
     "php_cli_version": "8.2",
+    "php_version": "8.2",
     "display_errors": false
   }
   
