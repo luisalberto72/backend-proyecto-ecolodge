@@ -17,7 +17,7 @@ return [
 
     'paths' => ['api/*', 'storage/*'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['http://localhost:4200'],  // La URL de tu frontend Angular
+    'allowed_origins' => ['http://3.250.176.231'],  // La URL de tu frontend Angular
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
     'max_age' => 0,
