@@ -29,7 +29,7 @@ WORKDIR /var/www
 USER laravel
 
 # Instala dependencias de Composer
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Vuelve a usar root para configurar Apache
 USER root
