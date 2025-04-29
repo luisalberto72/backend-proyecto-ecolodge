@@ -18,6 +18,9 @@ class Opinion extends Model
         'viajero_nombre'
     ];
 
+
+    public $timestamps = true;
+    
     // Relación con Ecolodge
     public function ecolodge()
     {
