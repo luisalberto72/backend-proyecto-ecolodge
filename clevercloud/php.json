@@ -1,0 +1,20 @@
+{
+    "version": "8.2",
+    "extensions": [
+      "pdo",
+      "pdo_mysql",
+      "mbstring",
+      "tokenizer",
+      "xml",
+      "ctype",
+      "openssl",
+      "curl",
+      "fileinfo",
+      "bcmath"
+    ],
+    "document_root": "public",
+    "app_folder": "public",
+    "php_cli_version": "8.2",
+    "display_errors": false
+  }
+  
